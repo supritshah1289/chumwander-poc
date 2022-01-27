@@ -3,12 +3,19 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import configureStore from "./Redux/configureStore";
+import { Provider as ReduxProvider } from "react-redux";
+
+//it can be helpful to pass initial state into the store here if  you're server rendering or initializing your redux store with data from localstorage
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ReduxProvider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </ReduxProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
