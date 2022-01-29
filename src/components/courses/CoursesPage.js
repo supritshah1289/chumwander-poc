@@ -1,4 +1,5 @@
 import React from "react";
+import CourseSample from "./CourseSample";
 
 class CoursesPage extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class CoursesPage extends React.Component {
     return (
       <form>
         <h2>Add Courses</h2>
+        <CourseSample name="Nikita Shah" />
         <input
           type="text"
           onChange={this.handleChange}
