@@ -2,10 +2,12 @@ import { handleResponse, handleError } from "./apiUtils";
 const baseUrl = process.env.REACT_APP_API_URL + "/courses/";
 
 export function getCourses() {
+  console.log(baseUrl);
   console.log("Currently in getCourses() in courseApi.js");
   return fetch(baseUrl).then(handleResponse).catch(handleError);
 }
 
+//if course exists then edit and save else create a new using post method
 export function saveCourse(course) {
   return fetch(baseUrl + (course.id || ""), {
     method: course.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
