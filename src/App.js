@@ -2,7 +2,7 @@ import { Routes, Route, Switch } from "react-router-dom";
 import HomePage from "./components/home/HomePage";
 import AboutPage from "./components/about/AboutPage";
 import CoursesPage from "./components/courses/CoursesPage";
-import Header from "./components/commom/Header";
+import Header from "./components/common/Header";
 import PageNotFound from "./components/PageNotFound";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
