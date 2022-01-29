@@ -10,16 +10,23 @@ class CoursesPage extends React.Component {
     };
   }
 
+  handleChange = (event) => {
+    event.preventDefault();
+    const course = { ...this.state.course, title: event.target.value };
+    this.setState({ course: course });
+  };
+
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <h2>Add Courses</h2>
         <input
           type="text"
-          //   onChange={this.handleChange}
+          onChange={this.handleChange}
           value={this.state.course.title}
         />
         <input type="submit" value="Save" />
+        <div>{this.state.course.title}</div>
       </form>
     );
   }
