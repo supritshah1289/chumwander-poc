@@ -7,13 +7,14 @@ class CoursesPage extends React.Component {
     this.state = {
       course: {
         title: "",
+        name: "",
       },
     };
   }
 
   handleChange = (event) => {
     event.preventDefault();
-    const course = { ...this.state.course, title: event.target.value };
+    const course = { ...this.state.course, name: event.target.value };
     this.setState({ course: course });
   };
 
@@ -21,14 +22,15 @@ class CoursesPage extends React.Component {
     return (
       <form>
         <h2>Add Courses</h2>
-        <CourseSample name="Nikita Shah" />
+        <CourseSample name={this.state.course.name} />
         <input
           type="text"
           onChange={this.handleChange}
-          value={this.state.course.title}
+          value={this.state.course.name}
         />
+
         <input type="submit" value="Save" />
-        <div>{this.state.course.title}</div>
+        <div>{this.state.course.name}</div>
       </form>
     );
   }
