@@ -1,10 +1,9 @@
+/* eslint-disable react/jsx-no-undef */
 import React from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = () => (
-  <div className="h-100 p-5 text-white bg-dark rounded-3">
-    <h1>Pluralsight Administration</h1>
-    <p>React, Redux and React Router for ultra-responsive web apps.</p>
+  <div className="h-100 p-5 text-white bg-light">
     <Link to="about" className="btn btn-primary btn-lg">
       Learn More
     </Link>
