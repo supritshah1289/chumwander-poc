@@ -1,13 +1,23 @@
 import React from "react";
+import { getUser, removeUserSession } from '../common/common';
 
-class CoursesPage extends React.Component {
-  constructor(props) {
+function CoursesPage(props) {
+  
+  
+  constructor(props) {  
     super(props);
     this.state = {
       course: {
         title: "",
       },
     };
+  }
+   
+  const user = getUser();
+  // handle click event of logout button
+  handleLogout = () => {
+    removeUserSession();
+    props.history.push('/login');
   }
 
   handleChange = (event) => {
@@ -16,10 +26,11 @@ class CoursesPage extends React.Component {
     this.setState({ course: course });
   };
 
-  render() {
+  //render() {
     return (
       <form>
-        <h2>Add Courses</h2>
+        <h2>Welcome {user.name}!<br /><br /></h2>
+        <h2>Add Courses</h2>  
         <input
           type="text"
           onChange={this.handleChange}
@@ -27,9 +38,11 @@ class CoursesPage extends React.Component {
         />
         <input type="submit" value="Save" />
         <div>{this.state.course.title}</div>
+        <input type="button" onClick={handleLogout} value="Logout" />
       </form>
+      
     );
   }
-}
+//}
 
 export default CoursesPage;

@@ -14,18 +14,17 @@ function Login(props) {
     setLoading(true);
     const header = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        
+        "Access-Control-Allow-Origin": "*"
     }
     axios.post('https://lit-citadel-46105.herokuapp.com/authenticate', { "email": username.value, "password": password.value }, header).then(response => {
         console.log(response);
-    //   setLoading(false);
-    //   setUserSession(response.data.token, response.data.user);
-      //props.history.push('/dashboard');
+      setLoading(false);
+      setUserSession(response.data.token, response.data.user);
+      props.history.push('/courses');
     }).catch(error => {
       setLoading(false);
-    //   if (error.response.status === 401) setError(error.response.data.message);
-    //   else setError("Something went wrong. Please try again later.");
+      if (error.response.status === 401) setError(error.response.data.message);
+      else setError("Something went wrong. Please try again later.");
     });
   }
  
